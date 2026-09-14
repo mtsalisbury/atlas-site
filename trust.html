@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="What Project Atlas is, what is built today, and what Atlas commits to — and cannot do — with a person's data.">
+  <title>Trust &amp; Data — Project Atlas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="./"><span class="brand-mark">◎</span><span>Project Atlas</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav"><a href="#problem">Problem</a><a href="#research">Research</a><a href="#principles">Principles</a><a href="#review">Technical Review</a><a href="articles/">Articles</a><a href="diagrams/">Diagrams</a><a href="trust.html">Trust &amp; Data</a><a class="nav-button" href="research/">Atlas Papers</a></nav>
+  </div>
+</header>
+
+<main>
+<section class="paper-hero">
+  <div class="paper-shell">
+    <p class="eyebrow">Trust &amp; Data</p>
+    <div class="paper-meta">
+      <span>Public disclosure</span>
+      <span>Closed testing phase</span>
+      <span>Updated September 13, 2026</span>
+    </div>
+    <h1 class="paper-title">What Atlas is, what is built, and what it commits to</h1>
+    <p class="paper-deck">A plain statement of what Project Atlas does with a person's data today, what it cannot do by design, and where that is still a rule rather than a mathematical guarantee.</p>
+
+    <div class="thesis-card">
+      <span class="thesis-label">In one sentence</span>
+      <p>Atlas gives a person a portable identity that services can trust without a company standing behind it as a broker — and it is built so that Atlas itself cannot answer "where has this person been," even if compelled to try.</p>
+    </div>
+  </div>
+</section>
+
+<section class="paper-layout">
+  <aside class="paper-toc" aria-label="Contents">
+    <strong>Contents</strong>
+    <a href="#what-it-is">1. What Atlas Is</a>
+    <a href="#built-today">2. What Is Built Today</a>
+    <a href="#commitments">3. What Atlas Commits To</a>
+    <a href="#can-answer">4. What Atlas Can and Cannot Answer</a>
+    <a href="#status">5. Where This Is a Rule, Not Yet a Guarantee</a>
+    <a href="#questions">6. Questions and Review</a>
+  </aside>
+
+  <article class="paper-body">
+    <section id="what-it-is">
+      <p class="section-number">01</p>
+      <h2>What Atlas Is</h2>
+      <p>Atlas is a portable, self-controlled identity: a way for a person to prove who they are to a service without that service — or Atlas — needing to hold a permanent, centralized record of them to do it.</p>
+      <p>Most services today recognize an account, not a person. Change devices, change networks, or lose access to one provider, and the relationship has to be rebuilt from nothing. Atlas is a credential rooted in something only the person holds — not a device, not a company account — so the identity survives a lost laptop or a changed carrier without becoming a new identity at every service that trusted the old one.</p>
+      <p>Atlas is not an open identity standard and not a general-purpose network product. It approves each service it works with individually, and it is not a substitute for a person's Internet provider — Atlas does not monitor, filter, or police what a person's connection reaches. That is deliberate, and explained in <a href="#commitments">Section 3</a>.</p>
+    </section>
+
+    <section id="built-today">
+      <p class="section-number">02</p>
+      <h2>What Is Built Today</h2>
+      <p>Project Atlas is in closed testing, not public launch. What exists and has been run end to end:</p>
+      <div class="definition-grid">
+        <article><h3>A long-lived credential</h3><p>Issued from a one-time recovery phrase the person holds, not from any single device. Losing a device does not change the identity a service sees.</p></article>
+        <article><h3>Per-service identifiers</h3><p>Each service Atlas connects to receives a different, fixed identifier for the same person — not one ID reused everywhere.</p></article>
+        <article><h3>One verifying service</h3><p>A demonstration relying party verifies an Atlas identity from a published cryptographic key, with no shared secret and no API call to Atlas required to trust the result.</p></article>
+        <article><h3>Clients on three platforms</h3><p>macOS, iOS, and Android clients carry a person's identity and, optionally, a declared connection origin, end to end.</p></article>
+        <article><h3>An optional declared origin</h3><p>A person can choose where their connection is seen as originating from, confirmed independently by third-party systems and not enabled by default.</p></article>
+        <article><h3>Self-held recovery</h3><p>A one-time phrase generated at signup and never held by Atlas is the only way to recover or re-key an account.</p></article>
+      </div>
+      <p>What is not yet built: a public sign-up (registration is closed and curated), a second independently-operated relying party, and the final cryptographic step described in <a href="#status">Section 5</a>.</p>
+    </section>
+
+    <section id="commitments">
+      <p class="section-number">03</p>
+      <h2>What Atlas Commits To</h2>
+      <p>These are structural choices, not a privacy policy that could be quietly revised. Each one gives something up in exchange for not being able to be compelled to give up more.</p>
+      <div class="definition-grid">
+        <article><h3>No company-held recovery</h3><p>The recovery phrase is generated once, shown once, and held only by the person. Atlas keeps no copy and has no override. The accepted cost: if a person loses the phrase too, Atlas cannot get the account back for them.</p></article>
+        <article><h3>Identity and address are kept apart</h3><p>No record Atlas keeps joins a person's identity directly to a network address they have used. Authorizing a connection requires holding a valid credential — it does not require Atlas to know, or ask, who is behind it.</p></article>
+        <article><h3>Public-key verification, not shared secrets</h3><p>Every identity assertion Atlas issues is signed and can be checked against a key Atlas publishes. A relying party verifies it directly instead of trusting an API response or a secret passed out of band.</p></article>
+        <article><h3>Closed, individually approved relying parties</h3><p>Atlas is not an open standard anyone can integrate against unannounced. Every relying party is approved one at a time, so its cryptographic setup is confirmed in advance rather than trusted blind.</p></article>
+        <article><h3>Unlinkable by design, per service</h3><p>The identifier one service sees for a person cannot be matched to the identifier a different service sees, even if the two compare notes — the derivation exists from the first relying party onward, not bolted on later.</p></article>
+        <article><h3>No destination monitoring</h3><p>Atlas does not inspect, log, filter, or flag which sites or services a person's traffic reaches. Policing destinations is a network provider's function; Atlas's function is proving who someone is, and it does not take on the first to make the second look safer.</p></article>
+      </div>
+    </section>
+
+    <section id="can-answer">
+      <p class="section-number">04</p>
+      <h2>What Atlas Can and Cannot Answer</h2>
+      <p>This is the practical test of the commitments above: what Atlas could actually produce if legally compelled to disclose everything it holds. The honest answer is a mix — some things are recorded because the service cannot work otherwise, and a larger set of things simply are not recorded, because nothing in the design writes them down.</p>
+      <div class="table-wrap">
+        <table class="comparison-table">
+          <thead><tr><th>Question</th><th>Answerable?</th></tr></thead>
+          <tbody>
+            <tr><td>Does an email address belong to an Atlas account, and when was it created?</td><td>Yes</td></tr>
+            <tr><td>Which devices are enrolled to an account, and each device's <em>current</em> network address?</td><td>Yes — current state only, not history beyond a short retention window</td></tr>
+            <tr><td>Which optional connection origin has an account currently chosen?</td><td>Yes — the current choice, not a history of past choices</td></tr>
+            <tr><td>How many connection credentials did an account request in a period?</td><td>Yes — a count, not which credentials</td></tr>
+            <tr><td>Which person was behind a given network address at a past point in time?</td><td>No — no record exists beyond the short retention window</td></tr>
+            <tr><td>What destinations or sites did a person's traffic reach?</td><td>No — Atlas keeps no flow logs or per-person destination logs</td></tr>
+            <tr><td>Which person does a given relying-party identifier belong to, using only what the relying party holds?</td><td>No — the identifier is unlinkable without Atlas's own signing material</td></tr>
+            <tr><td>Can Atlas revoke a device or an account on request?</td><td>Yes — this exists and is used</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Atlas cannot offer a warrant-gated exception to any "No" above without converting it back into a "Yes" for everyone — there is no partial version of not keeping a record.</p>
+    </section>
+
+    <section id="status">
+      <p class="section-number">05</p>
+      <h2>Where This Is a Rule, Not Yet a Guarantee</h2>
+      <p>One item above is honestly in between. The unlinkable per-service identifier already holds: no relying party, alone or comparing notes with another, can identify a person from the identifier it holds. But Atlas's own issuing system, today, is capable of computing which person a given identifier belongs to, because it is the system that signed it in the first place — the question "is this identifier person X?" is currently one Atlas could be asked to answer.</p>
+      <p>The rule in place until that changes: Atlas's issuing system stores nothing about a credential after handing it out except a count. No credential value, no hash, and no linking key is written down anywhere. That makes the question above unanswerable in practice today, but it rests on a written rule about what the system chooses not to store, not on a mathematical property of the cryptography.</p>
+      <p>The remaining engineering step — a blind-signature scheme, reviewed by an outside cryptographer before it ships — converts that rule into a property: Atlas will become structurally unable to compute the answer at all, not merely committed not to look. That step gates Atlas opening beyond invited testers. This page will be updated when it ships.</p>
+    </section>
+
+    <section id="questions">
+      <p class="section-number">06</p>
+      <h2>Questions and Review</h2>
+      <p>This page describes the current stack under active testing, not a finished product. If something above looks wrong, incomplete, or overstated, that is exactly the kind of review this project asks for.</p>
+      <div class="review-cta">
+        <h3>Send a review of this page</h3>
+        <a class="button button-primary" href="review.html">Send feedback</a>
+        <a class="button button-secondary" href="https://github.com/mtsalisbury/ProjectAtlas/issues/new" target="_blank" rel="noopener">Open a GitHub issue</a>
+      </div>
+    </section>
+
+    <footer class="paper-status">
+      <p><strong>Status:</strong> Closed testing. Registration is not open to the public.</p>
+      <p><strong>Last updated:</strong> September 13, 2026</p>
+    </footer>
+  </article>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="brand footer-brand" href="./"><span class="brand-mark">◎</span><span>Project Atlas</span></a><p>Open technical research into person-controlled Internet presence.</p></div>
+    <div class="footer-links"><a href="research/">Research</a><a href="articles/">Articles</a><a href="diagrams/">Diagrams</a><a href="trust.html">Trust &amp; Data</a><a href="review.html">Technical Review</a><a href="survey-setup.html">Survey</a></div>
+  </div>
+</footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
