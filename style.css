@@ -107,7 +107,7 @@ a {
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 92px 0 98px;
+  padding: 40px 0 98px;
   background:
     radial-gradient(circle at 82% 25%, rgba(86, 89, 221, 0.12), transparent 31%),
     linear-gradient(180deg, #fff 0%, #f8f9fd 100%);
@@ -227,6 +227,51 @@ h3 {
   color: #7a8499;
   font-size: 13px;
   line-height: 1.6;
+}
+
+.hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.hero-visual .presence-card {
+  width: 100%;
+}
+
+.hero-video-badge {
+  position: relative;
+  width: 440px;
+  max-width: 100%;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.hero-video-badge video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.hero-video-badge-download {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  font-size: 13px;
+  line-height: 1;
+  box-shadow: 0 4px 10px rgba(30, 39, 79, 0.12);
 }
 
 .presence-card {
@@ -568,6 +613,11 @@ h3 {
     min-height: 440px;
   }
 
+  .hero-video-badge {
+    width: 100%;
+    max-width: 380px;
+  }
+
   .publication-grid {
     grid-template-columns: 1fr;
   }
@@ -894,4 +944,56 @@ h3 {
 @media (max-width: 650px) {
   .journey-item { grid-template-columns: 40px 1fr; gap: 16px; }
   .journey-num { width: 40px; height: 40px; font-size: 14px; }
+}
+
+/* Atlas Pitch — single-page explainer */
+.pitch-hero { padding: 96px 0 70px; background: radial-gradient(circle at 82% 20%, rgba(86,89,221,.14), transparent 32%), linear-gradient(180deg,#fff 0%,#f8f9fd 100%); border-bottom: 1px solid var(--line); }
+.pitch-hero h1 { max-width: 880px; }
+.pitch-lead { max-width: 720px; color: var(--muted); font-size: 21px; line-height: 1.65; }
+.pitch-section { padding: 88px 0; }
+.pitch-section.section-white + .pitch-section.section-white { border-top: 1px solid var(--line); }
+.pitch-block { max-width: 760px; }
+.pitch-block h2 { font-size: clamp(30px,3.4vw,44px); }
+.pitch-block p { color: var(--muted); font-size: 18px; line-height: 1.75; margin-bottom: 18px; }
+.pitch-block p:last-child { margin-bottom: 0; }
+.pitch-tag { display: inline-block; margin-bottom: 18px; padding: 6px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: 12px; font-weight: 850; letter-spacing: .06em; text-transform: uppercase; }
+.pitch-cta { margin-top: 46px; padding: 40px; background: var(--dark); border-radius: var(--radius); color: var(--white); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.pitch-cta h3 { margin: 0 0 6px; font-size: 26px; }
+.pitch-cta p { margin: 0; color: #aeb6cc; }
+@media (max-width: 650px) {
+  .pitch-hero { padding: 66px 0 50px; }
+  .pitch-section { padding: 60px 0; }
+}
+
+/* Atlas Investor Deck */
+.deck-header { position: sticky; top: 0; z-index: 40; padding: 18px 0; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+.deck-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.deck-meta { color: var(--muted); font-size: 13px; font-weight: 750; }
+.deck-wrap { padding: 56px 0 104px; background: var(--surface); }
+.deck-slide { max-width: 980px; margin: 0 auto 40px; padding: 64px 72px; background: var(--white); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); }
+.deck-slide-dark { background: var(--dark); color: var(--white); border-color: rgba(255,255,255,.08); }
+.deck-slide-dark .deck-num, .deck-slide-dark .eyebrow { color: #a7a9ff; }
+.deck-slide-dark p, .deck-slide-dark li { color: #c7cbe0; }
+.deck-num { margin-bottom: 16px; color: var(--accent); font-size: 12px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.deck-slide h2 { font-size: clamp(28px,3.2vw,42px); margin-bottom: 22px; }
+.deck-slide p { color: var(--muted); font-size: 17px; line-height: 1.7; margin-bottom: 16px; }
+.deck-slide p:last-child { margin-bottom: 0; }
+.deck-slide ul { margin: 0; padding-left: 22px; color: var(--muted); font-size: 16px; line-height: 1.85; }
+.deck-slide-cover { text-align: center; padding: 96px 60px; }
+.deck-slide-cover h1 { font-size: clamp(44px,6vw,68px); margin-bottom: 18px; }
+.deck-slide-cover p { max-width: 600px; margin: 0 auto; color: #aeb6cc; font-size: 19px; }
+.deck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+.deck-grid div { padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; font-size: 15px; color: var(--ink); font-weight: 700; }
+.deck-slide-dark .deck-grid div { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.1); color: #fff; }
+@media print {
+  .site-header, .deck-header, .site-footer, .no-print { display: none !important; }
+  body { background: #fff; }
+  .deck-wrap { padding: 0; background: #fff; }
+  .deck-slide { box-shadow: none; border: none; border-radius: 0; page-break-after: always; margin: 0; max-width: none; width: 100%; padding: 56px 64px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .deck-slide:last-child { page-break-after: auto; }
+  .deck-slide-dark { background: var(--dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+@media (max-width: 650px) {
+  .deck-slide { padding: 40px 26px; }
+  .deck-grid { grid-template-columns: 1fr; }
 }
