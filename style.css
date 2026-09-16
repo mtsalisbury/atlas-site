@@ -242,7 +242,7 @@ h3 {
 
 .hero-video-badge {
   position: relative;
-  width: 440px;
+  width: 300px;
   max-width: 100%;
   overflow: hidden;
   background: var(--white);
