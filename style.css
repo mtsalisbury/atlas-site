@@ -242,7 +242,7 @@ h3 {
 
 .hero-video-badge {
   position: relative;
-  width: 356px;
+  width: 75%;
   max-width: 100%;
   overflow: hidden;
   background: var(--white);
@@ -611,11 +611,6 @@ h3 {
 
   .presence-card {
     min-height: 440px;
-  }
-
-  .hero-video-badge {
-    width: 356px;
-    max-width: 100%;
   }
 
   .publication-grid {
