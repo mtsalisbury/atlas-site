@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Atlas Identity one-pager — what it is, the credential gap, the MVP, and an honest read on where the plan stands. Layer9i, Inc.">
+  <meta name="description" content="Atlas Identity one-pager for investors: what's built, the first Atlas-origin IPv6 prefix raise, and the ask. Layer9i, Inc.">
   <title>One-Pager — Atlas Identity</title>
   <link rel="stylesheet" href="../../style.css">
 </head>
@@ -21,131 +21,63 @@
   <div class="paper-shell">
     <p class="eyebrow">Investors</p>
     <div class="paper-meta">
-      <span>Layer9i, Inc.</span>
-      <span>Pre-revenue — active technical validation</span>
-      <span>September 2, 2026</span>
+      <span>Layer9i, Inc. — Delaware C-corp</span>
+      <span>Pre-revenue — closed testing</span>
+      <span>17 September 2026</span>
     </div>
     <h1 class="paper-title">Atlas Identity — the one-pager</h1>
-    <p class="paper-deck">What Atlas is, the gap found before any relying party integrated, the MVP that closes it, and an honest score of where the plan stands today.</p>
+    <p class="paper-deck">Person-controlled presence: an identity that works across services and networks without being owned by any company. The mesh, exit nodes, and declared-origin routing exist to make that identity demonstrable. They are not the product.</p>
   </div>
 </section>
 
-<section class="paper-layout">
-  <aside class="paper-toc" aria-label="Contents">
-    <strong>Contents</strong>
-    <a href="#what-it-is">1. What It Is</a>
-    <a href="#finding">2. The Finding</a>
-    <a href="#gap">3. The Gap</a>
-    <a href="#mvp">4. The MVP</a>
-    <a href="#honest-position">5. Honest Position</a>
-    <a href="#built-today">6. What Is Built Today</a>
-    <a href="#tailscale">7. On Tailscale</a>
-    <a href="#defensible">8. Why the Position Is Defensible</a>
-  </aside>
+<section class="paper-layout" style="display:block;">
+  <article class="paper-body" style="max-width:760px; margin:0 auto;">
 
-  <article class="paper-body">
-    <section id="what-it-is">
-      <p class="section-number">01</p>
-      <h2>What It Is</h2>
-      <p>A portable, self-controlled identity that works across services and networks without being owned by any company. The mesh, exit nodes, and declared-origin routing exist to make that identity demonstrable. They are not the product.</p>
-    </section>
+    <div class="thesis-card">
+      <span class="thesis-label">The ask, in one line</span>
+      <p>This raise stands up the first Atlas-origin IPv6 prefix (one colo, one transit session, RPKI). We do not take customer payment until a third-party lookup shows that prefix. Sandbox commerce under Layer9i Inc is separate and charges no one.</p>
+    </div>
 
-    <section id="finding">
-      <p class="section-number">02</p>
-      <h2>The Finding</h2>
-      <p>Destinations block datacenter addresses because they cannot tell whether a person is behind the connection. Network type is a proxy measurement for identity. An identity a relying party accepts removes the need for the proxy.</p>
-      <p>This inverts the plan. A geographic edge footprint is expensive, scales with the map, and solves a problem the identity layer dissolves. Deferred.</p>
-    </section>
+    <div class="definition-grid">
+      <article>
+        <h3>Built</h3>
+        <p>Working clients on macOS, iOS, and Android; live exits; pairwise IDs and a published-key verifier, as described on <a href="../../trust.html">Trust &amp; Data</a>; a recovery phrase with no company copy; rented egress with no retained account-to-address join.</p>
+      </article>
+      <article>
+        <h3>Still gated</h3>
+        <p>New-stack macOS end-to-end and blind-signature issuance are still open gates. Windows is in onboarding, not yet shipped.</p>
+      </article>
+      <article>
+        <h3>Will not do</h3>
+        <p>Charge a customer until a third-party lookup shows Atlas-origin IPv6 on the wire.</p>
+      </article>
+      <article>
+        <h3>Ask</h3>
+        <p>YC post-money SAFE via Stripe Atlas. $400k–$750k, $6M–$8M post-money cap — one cage, cross-connect, and port, plus a v6 path and founder runway. Not a seed-scale team. Exact amount and cap are set in Stripe Atlas before any signed note.</p>
+      </article>
+      <article>
+        <h3>First payer</h3>
+        <p>Invited individuals on Presence. Independent relying parties come after the prefix is real — Atlas approves relying parties one at a time, which is too slow to be the wedge.</p>
+      </article>
+      <article>
+        <h3>Team</h3>
+        <p>Founder is a network and datacenter engineer who designed and operates the Atlas clients, mesh, and exits. Layer9i Inc is a Delaware C-corp formed via Stripe Atlas.</p>
+      </article>
+    </div>
 
-    <section id="gap">
-      <p class="section-number">03</p>
-      <h2>The Gap</h2>
-      <div class="thesis-card">
-        <span class="thesis-label">In one sentence</span>
-        <p>Atlas has device sessions. It has no long-lived user credential above them.</p>
+    <div class="review-cta">
+      <h3>Go deeper</h3>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:14px;">
+        <a class="button button-primary" href="https://layer9i.com/assets/video/atlas-identity-overview.mp4">Watch the overview</a>
+        <a class="button button-secondary" href="https://layer9i.com/atlas/investors/Atlas-Identity-Investor-Deck.pdf">Read the deck</a>
+        <a class="button button-secondary" href="https://layer9i.com/trust.html">Trust &amp; Data</a>
+        <a class="button button-secondary" href="https://presence.layer9i.com/presence.html">Try the product</a>
       </div>
-      <p>Found by design analysis, before any relying party integrated. It puts two verified results in conflict:</p>
-      <div class="table-wrap">
-        <table class="comparison-table">
-          <thead><tr><th>Verified</th><th>At which layer</th><th>What it must become</th></tr></thead>
-          <tbody>
-            <tr><td>H6 — identity persists across a carrier switch (Bell → Rogers)</td><td>Mesh: Headscale node-to-user binding</td><td>An identity stable across networks</td></tr>
-            <tr><td>H5 — one device revoked without disturbing others</td><td>Mesh</td><td>An identity that survives device loss</td></tr>
-            <tr><td>Declared origin confirmed by TD Bank's fraud detection</td><td>Routing</td><td>An attestable origin claim</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>If relying-party identifiers derive from a device session, revoking a laptop hands the user a new identity at every service. H5 would destroy H6. The properties are right; the layer cannot carry them into the product.</p>
-      <p><strong>Resolution:</strong> the self-held recovery phrase issues device keys. The credential root already exists and already has no company-side copy.</p>
-    </section>
-
-    <section id="mvp">
-      <p class="section-number">04</p>
-      <h2>The MVP</h2>
-      <p>Not a smaller rewrite. A vertical slice:</p>
-      <div class="definition-grid">
-        <article><h3>Long-lived credential</h3><p>Above the device layer, rooted in the recovery phrase.</p></article>
-        <article><h3>Pairwise relying-party identifiers</h3><p>Derived from the credential, not the device session.</p></article>
-        <article><h3>One relying party, published key</h3><p>Verified from a published key — not a secret pasted into two demos.</p></article>
-        <article><h3>macOS end to end</h3><p>Sign in, prove this Mac, present identity, declared origin still attestable on existing exits.</p></article>
-        <article><h3>H5 and H6 re-run at the credential layer</h3><p>If revoking a laptop changes the identifier the relying party sees, the MVP failed.</p></article>
-      </div>
-      <p><strong>Deliberately out of scope:</strong> new mesh, mobile clients, blind-signature issuance, payment, geographic edge.</p>
-      <p><strong>One or two existing exits stay live.</strong> That is attestation infrastructure, not an ISP. Removing them removes the only third-party validation the project has.</p>
-    </section>
-
-    <section id="honest-position">
-      <p class="section-number">05</p>
-      <h2>Honest Position</h2>
-      <div class="table-wrap">
-        <table class="comparison-table">
-          <thead><tr><th></th><th>Platform rebuild</th><th>Vertical slice</th><th>Slice with one verifier</th></tr></thead>
-          <tbody>
-            <tr><td>Positioning</td><td>8.0</td><td>8.0</td><td>8.0</td></tr>
-            <tr><td>Timing / one-way door</td><td>8.0</td><td>8.0</td><td>8.0</td></tr>
-            <tr><td>Architecture</td><td>7.5</td><td>7.5</td><td>8.0</td></tr>
-            <tr><td>Problem</td><td>7.5</td><td>7.5</td><td>7.5</td></tr>
-            <tr><td>Technical proof</td><td>6.5</td><td>6.5</td><td>8.0</td></tr>
-            <tr><td>Team / execution</td><td>6.5</td><td>7.0</td><td>7.0</td></tr>
-            <tr><td>Capital efficiency</td><td>5.5</td><td>7.0</td><td>7.0</td></tr>
-            <tr><td>Distance to MVP</td><td>4.5</td><td>7.0</td><td>7.5</td></tr>
-            <tr><td>Market / GTM</td><td>4.0</td><td>4.0</td><td>4.5</td></tr>
-            <tr><td>Business model</td><td>4.0</td><td>4.0</td><td>4.5</td></tr>
-            <tr><td><strong>Overall</strong></td><td><strong>6.7</strong></td><td><strong>7.1</strong></td><td><strong>7.5</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>The move from 6.7 to 7.1 is scope and capital efficiency. The move to 7.5 is proof at the correct layer plus one real verifier.</p>
-      <p class="table-note"><strong>The remaining gap is a buyer.</strong> A tighter build does not create a bank that will pay, a consumer who will pay, or an independent relying party Atlas does not operate. Not an 8 until someone pays for the user-side position.</p>
-    </section>
-
-    <section id="built-today">
-      <p class="section-number">06</p>
-      <h2>What Is Built Today</h2>
-      <p>Working mesh, self-hosted coordination server, exit nodes, dashboard, and clients on macOS, Android, and iOS — on the current stack. H5 and H6 verified at the mesh layer. Declared-origin routing confirmed independently by a third party's fraud detection.</p>
-      <p>Blind-signature issuance, the identity engine, and the payment layer are designed, not built.</p>
-    </section>
-
-    <section id="tailscale">
-      <p class="section-number">07</p>
-      <h2>On Tailscale</h2>
-      <p>Tailscale reached a $2B valuation, acquired Border0 in March 2026 to build privileged access management, and launched Aperture — an identity-linked governance layer where identity is the core organising principle, tying each request and tool call to a known user or workload identity.</p>
-      <p>Same city, same architectural lineage, and they have moved beyond connectivity into identity-based access control. The overlap is real and should be raised directly rather than avoided.</p>
-      <p><strong>The vector is opposite.</strong> Aperture exists to give security and compliance teams visibility into what a tool did, which resources it accessed, and who initiated it. Border0 logs every session, human or agent, scoped for audit. Tailscale's identity layer makes the person legible to the organization. Atlas makes the person legible to services on their own terms, and unlinkable across them. One builds attribution; the other builds unlinkability.</p>
-      <p><strong>What their trajectory proves, in both directions.</strong> They started at connectivity and had to move up the stack — the mesh alone is not a business. They landed on identity as the layer that matters. Both support this plan. But they reached $2B by serving the relying party, which is evidence about which side of this axis has a buyer.</p>
-      <p><strong>Implication for scope:</strong> the employment identity context stays a reserved placeholder permanently. That is head-on Tailscale territory. Personal and pseudonymous are the defensible contexts.</p>
-    </section>
-
-    <section id="defensible">
-      <p class="section-number">08</p>
-      <h2>Why the Position Is Defensible</h2>
-      <p>Google, Apple, and the enterprise identity vendors are structurally aligned with the relying party, not the person. That side of the market is unoccupied — partly because nobody has solved paying for it.</p>
-      <p>Atlas's commitments are structural rather than contractual: no centralized traffic content, self-held recovery with no company-side override, and client-local ephemeral capture with the centralized bootstrap path decommissioned rather than disabled. Each is a capability that does not exist to be compelled, not a policy that can be revisited.</p>
-    </section>
+    </div>
 
     <footer class="paper-status">
-      <p><strong>Status:</strong> Pre-revenue, active technical validation.</p>
-      <p><strong>Last updated:</strong> September 2, 2026</p>
+      <p><strong>Status:</strong> Pre-revenue, closed testing.</p>
+      <p><strong>Last updated:</strong> 17 September 2026</p>
     </footer>
   </article>
 </section>
