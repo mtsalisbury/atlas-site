@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Atlas Identity news</title>
+    <link>https://layer9i.com/news/</link>
+    <atom:link href="https://layer9i.com/news/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>What&#x27;s new at Layer9i and Atlas Identity: the latest news, where Atlas is today, what&#x27;s coming next, and how it works.</description>
+    <language>en</language>
+    <item><title>A new look for Atlas Identity and Layer9i</title><link>https://layer9i.com/news/new-look/</link><guid>https://layer9i.com/news/new-look/</guid><pubDate>Sat, 10 Oct 2026 12:00:00 +0000</pubDate><description>Atlas Identity and Layer9i have new logos. Here is what they stand for, and what Atlas does for you today.</description></item>
+  </channel>
+</rss>
